@@ -1,0 +1,11 @@
+# spring configuration
+spring:
+  application:
+    name: backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+# server configuration
+server:
+  servlet:
+    context-path: /api/v1
