@@ -1,0 +1,27 @@
+package org.lisovskyi.backend.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.lisovskyi.backend.enums.Provider;
+
+@Entity
+@Table(
+        name = "user_oauth_providers",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "unique_provider_uid_per_user", columnNames = {"provider", "provider_uid"})
+        }
+)
+@Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
+public class UserOauthProvider extends BaseEntity {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "provider", nullable = false, length = 50)
+    private Provider provider;
+
+    @Column(name = "provider_uid", nullable = false, length = 255)
+    private String providerUserId;
+}
