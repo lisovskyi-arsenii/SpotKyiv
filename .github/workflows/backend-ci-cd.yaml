@@ -66,7 +66,7 @@ jobs:
         SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
         SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION: true
         SPRING_FLYWAY_ENABLED: false
-      run: ./gradlew test --no-daemon --parallel --max-parallel-forks=4 --continue --no-build-cache
+      run: ./gradlew test --no-daemon --parallel --continue --no-build-cache
 
     - name: SonarCloud Scan
       if: success() && (github.event_name == 'pull_request' || github.ref == 'refs/heads/main')
