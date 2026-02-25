@@ -36,9 +36,11 @@ jobs:
         distribution: 'temurin'
 
     - name: Grant execute permission
+      working-directory: ./backend
       run: chmod +x gradlew
 
     - name: Build and Test
+      working-directory: ./backend
       env:
         SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/testdb
         SPRING_DATASOURCE_USERNAME: testuser
@@ -49,6 +51,7 @@ jobs:
 
     - name: SonarCloud Scan
       if: success() && (github.event_name == 'pull_request' || github.ref == 'refs/heads/main')
+      working-directory: ./backend
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
