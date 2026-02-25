@@ -5,8 +5,8 @@ CREATE TABLE location_interests (
     PRIMARY KEY (location_id, interest_id),
 
     CONSTRAINT fk_location_interests_location
-        FOREIGN KEY (location_id) REFERENCES location (id) ON DELETE CASCADE,
-    CONSTRAINT fk_user_interests_interest
+        FOREIGN KEY (location_id) REFERENCES locations (id) ON DELETE CASCADE,
+    CONSTRAINT fk_location_interests_interest
         FOREIGN KEY (interest_id) REFERENCES interests (id) ON DELETE CASCADE
 );
 
