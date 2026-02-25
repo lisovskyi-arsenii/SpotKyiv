@@ -1,8 +1,10 @@
 name: Spring Boot CI + SonarCloud
 
 on:
-  push: [ main, develop ]
-  pull_request: [ main ]
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test-and-sonar:
@@ -19,7 +21,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 10
-        ports: [ 5432:5432 ]
+        ports:
+          - 5432:5432
 
     steps:
     - uses: actions/checkout@v4
@@ -63,13 +66,7 @@ jobs:
         SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
         SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION: true
         SPRING_FLYWAY_ENABLED: false
-      run: |
-        ./gradlew test \
-          --no-daemon \
-          --parallel \
-          --max-parallel-forks=4 \
-          --continue \
-          --no-build-cache
+      run: ./gradlew test --no-daemon --parallel --max-parallel-forks=4 --continue --no-build-cache
 
     - name: SonarCloud Scan
       if: success() && (github.event_name == 'pull_request' || github.ref == 'refs/heads/main')
