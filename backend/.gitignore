@@ -36,7 +36,11 @@ out/
 ### VS Code ###
 .vscode/
 
+### Zed ###
+.zed/
+
 ### other ###
 .env
 .env.*
 !.env.example
+backend/src/main/resources/database_structure/

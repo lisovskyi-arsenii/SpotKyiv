@@ -2,6 +2,7 @@ package org.lisovskyi.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.lisovskyi.backend.constants.EntityConstraints;
 import org.lisovskyi.backend.enums.Role;
 
 import java.time.LocalDateTime;
@@ -11,16 +12,16 @@ import java.time.LocalDateTime;
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
 public class Users extends BaseEntity {
 
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = EntityConstraints.Users.USERNAME_MAX_LENGTH)
     private String username;
 
-    @Column(name = "email", nullable = false, unique = true, length = 100)
+    @Column(name = "email", nullable = false, unique = true, length = EntityConstraints.Users.EMAIL_MAX_LENGTH)
     private String email;
 
-    @Column(name = "password_hash", nullable = false, length = 255)
+    @Column(name = "password_hash", nullable = false, length = EntityConstraints.Users.PASSWORD_MAX_LENGTH)
     private String passwordHash;
 
-    @Column(name = "role", nullable = false, length = 10)
+    @Column(name = "role", nullable = false, length = EntityConstraints.Users.ROLE_MAX_LENGTH)
     @Enumerated(EnumType.STRING)
     private Role role;
 

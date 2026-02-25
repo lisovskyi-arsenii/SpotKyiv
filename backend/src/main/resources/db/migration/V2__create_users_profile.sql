@@ -11,5 +11,6 @@ CREATE TABLE users_profile (
     date_of_birth DATE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+    CONSTRAINT fk_user FOREIGN KEY (user_id)
+        REFERENCES users (id) ON DELETE CASCADE
 );

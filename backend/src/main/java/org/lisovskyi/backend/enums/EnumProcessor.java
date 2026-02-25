@@ -3,8 +3,8 @@ package org.lisovskyi.backend.enums;
 import java.util.Arrays;
 import java.util.Optional;
 
-public final class EnumUtility {
-    private EnumUtility() {
+public final class EnumProcessor {
+    private EnumProcessor() {
         throw new UnsupportedOperationException("EnumUtility cannot be instantiated - utility class");
     }
 

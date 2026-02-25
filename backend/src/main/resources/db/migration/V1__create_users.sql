@@ -13,12 +13,11 @@ CREATE TABLE users (
 );
 
 -- Create an index on the different columns for faster lookups
-CREATE UNIQUE INDEX CONCURRENTLY users_username_idx ON users (username);
-CREATE UNIQUE INDEX CONCURRENTLY users_email_idx ON users (email);
+CREATE UNIQUE INDEX users_username_idx ON users (username);
 CREATE INDEX users_role_idx ON users (role);
 CREATE INDEX users_is_verified_idx ON users (is_verified);
 CREATE INDEX users_is_active_idx ON users (is_active);
 CREATE INDEX users_created_at_idx ON users (created_at DESC);
 
 
-COMMENT ON COLUMN users.password_hash IS 'Encrypted hash password'
+COMMENT ON COLUMN users.password_hash IS 'Encrypted hash password';
