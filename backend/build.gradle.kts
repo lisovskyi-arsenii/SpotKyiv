@@ -6,6 +6,7 @@ plugins {
     id("org.graalvm.buildtools.native") version "0.11.4"
 //    id("com.google.protobuf") version "0.9.5"
     id("org.asciidoctor.jvm.convert") version "4.0.5"
+    id("org.sonarqube") version "7.1.0.6387"
 }
 
 group = "org.lisovskyi"
@@ -92,6 +93,13 @@ dependencies {
 hibernate {
     enhancement {
         enableAssociationManagement = true
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "lisovskyi-arsenii_SpotKyiv")
+        property("sonar.organization", "lisovskyi-arsenii")
     }
 }
 
