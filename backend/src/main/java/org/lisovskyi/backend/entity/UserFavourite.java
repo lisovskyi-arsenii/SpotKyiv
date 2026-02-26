@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "user_favourites")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class UserFavourites {
+public class UserFavourite {
 
     @EmbeddedId
     private UsersFavouritesId id;
@@ -17,12 +17,12 @@ public class UserFavourites {
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId")
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("locationId")
     @JoinColumn(name = "location_id", nullable = false)
-    private Locations location;
+    private Location location;
 
     @Column(name = "saved_at", nullable = false, updatable = false)
     private LocalDateTime savedAt;

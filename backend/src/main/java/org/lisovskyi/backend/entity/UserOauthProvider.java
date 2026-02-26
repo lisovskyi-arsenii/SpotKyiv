@@ -20,7 +20,7 @@ public class UserOauthProvider extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "provider", nullable = false, length = EntityConstraints.UserOauthProvider.PROVIDER_MAX_LENGTH)

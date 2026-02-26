@@ -7,7 +7,7 @@ import org.lisovskyi.backend.embeddable.LocationInterestsId;
 @Entity
 @Table(name = "location_interests")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class LocationInterests {
+public class LocationInterest {
 
     @EmbeddedId
     private LocationInterestsId id;
@@ -15,10 +15,10 @@ public class LocationInterests {
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("locationId")
     @JoinColumn(name = "location_id", nullable = false)
-    private Locations location;
+    private Location location;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("interestId")
     @JoinColumn(name = "interest_id", nullable = false)
-    private Interests interest;
+    private Interest interest;
 }

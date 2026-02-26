@@ -32,6 +32,8 @@ repositories {
 extra["snippetsDir"] = file("build/generated-snippets")
 //extra["springGrpcVersion"] = "1.0.2"
 
+val mapStructVersion = "1.5.5.Final"
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-h2console")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -52,6 +54,9 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql")
 //    implementation("org.springframework.grpc:spring-grpc-server-web-spring-boot-starter")
 
+    // MapStruct - for mapping between DTOs and entities
+    implementation("org.mapstruct:mapstruct:${mapStructVersion}")
+
     compileOnly("org.projectlombok:lombok")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -62,6 +67,7 @@ dependencies {
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${mapStructVersion}")
 
     testImplementation("org.springframework.boot:spring-boot-restdocs")
     testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")

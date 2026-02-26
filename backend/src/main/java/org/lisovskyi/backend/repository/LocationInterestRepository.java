@@ -1,0 +1,10 @@
+package org.lisovskyi.backend.repository;
+
+import org.lisovskyi.backend.embeddable.LocationInterestsId;
+import org.lisovskyi.backend.entity.LocationInterest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LocationInterestRepository extends JpaRepository<LocationInterest, LocationInterestsId> {
+}

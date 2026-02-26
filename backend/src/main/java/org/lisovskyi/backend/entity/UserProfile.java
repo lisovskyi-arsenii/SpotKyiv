@@ -9,14 +9,14 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "users_profile")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class UsersProfile extends BaseEntity {
+public class UserProfile extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",
             referencedColumnName = "id",
             nullable = false,
             unique = true)
-    private Users user;
+    private User user;
 
     @Column(name = "last_name", nullable = false, length = EntityConstraints.UsersProfile.NAME_MAX_LENGTH)
     private String lastName;

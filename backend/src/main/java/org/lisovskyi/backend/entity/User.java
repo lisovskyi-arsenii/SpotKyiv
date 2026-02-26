@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Users extends BaseEntity {
+public class User extends BaseEntity {
 
     @Column(name = "username", nullable = false, length = EntityConstraints.Users.USERNAME_MAX_LENGTH)
     private String username;

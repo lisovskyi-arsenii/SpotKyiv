@@ -16,11 +16,11 @@ import org.lisovskyi.backend.enums.Platform;
         }
 )
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class UserSocialLinks extends BaseEntity {
+public class UserSocialLink extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "platform", nullable = false, length = EntityConstraints.UserSocialLinks.PLATFORM_MAX_LENGTH)

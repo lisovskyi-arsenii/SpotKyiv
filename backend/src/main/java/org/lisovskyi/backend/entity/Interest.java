@@ -9,7 +9,7 @@ import org.lisovskyi.backend.constants.EntityConstraints;
 @Entity
 @Table(name = "interests")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Interests extends BaseEntity {
+public class Interest extends BaseEntity {
 
     @Column(name = "name", nullable = false, length = EntityConstraints.Interests.NAME_MAX_LENGTH)
     private String name;

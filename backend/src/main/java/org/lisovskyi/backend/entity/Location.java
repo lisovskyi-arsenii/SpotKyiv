@@ -9,11 +9,11 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "locations")
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Locations extends BaseEntity {
+public class Location extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by", nullable = false)
-    private Users user;
+    private User user;
 
     @Column(name = "name", nullable = false, length = EntityConstraints.Locations.NAME_MAX_LENGTH)
     private String name;
